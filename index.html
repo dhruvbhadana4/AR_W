@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Arusha 🌙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 🌙 INTRO GATE -->
+<div id="intro">
+  <div class="intro-text">Glad to see you here ✨</div>
+
+  <div class="gate gate-left"></div>
+  <div class="gate gate-right"></div>
+</div>
+
+<!-- 🌸 FALLING EMOJIS -->
+<div id="emoji-rain"></div>
+
+<!-- 🌿 FLOATING WORDS -->
+<div class="floating-words">
+  <span style="left:10%">Kind 🌸</span>
+  <span style="left:25%">Polite 🌙</span>
+  <span style="left:45%">Calm ✨</span>
+  <span style="left:65%">Intelligent 🧠</span>
+  <span style="left:80%">Amazing 💜</span>
+</div>
+
+<!-- 🐻🐼 BACKGROUND CHARACTERS -->
+<div id="bg-characters">
+  <span class="char rotate-12" style="top:15%; left:8%">🐻</span>
+  <span class="char rotate-180" style="top:35%; left:85%">🐼</span>
+  <span class="char rotate--12" style="top:60%; left:12%">🐼</span>
+  <span class="char rotate-180" style="top:70%; left:78%">🐻</span>
+</div>
+
+<!-- 🎵 AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎵 MUSIC BUTTON -->
+<button id="musicBtn" class="music-btn">▶ Play Music</button>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="title-glow">For Arusha</h1>
+</section>
+
+<!-- 💜 CARD 1 -->
+<section class="card">
+  <p>
+    🌸 Arusha’s polite and kind nature, along with her sweetness,
+    makes her truly pleasant. ✨🦋
+  </p>
+</section>
+
+<!-- 💜 CARD 2 -->
+<section class="card">
+  <p>
+    🌟 Your intelligence and calm mindset motivate me,
+    and I hope to perform better because of that inspiration. ✨
+  </p>
+</section>
+
+<footer>
+  <p>Some people make spaces feel calmer — just by being themselves 🌙</p>
+</footer>
+
+<script>
+/* 🎵 MUSIC PLAY / PAUSE */
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let playing = false;
+
+btn.addEventListener("click", () => {
+  if (!playing) {
+    music.volume = 0.4;
+    music.play();
+    btn.textContent = "⏸ Pause Music";
+  } else {
+    music.pause();
+    btn.textContent = "▶ Play Music";
+  }
+  playing = !playing;
+});
+
+/* 🌸 FALLING EMOJIS */
+const emojis = ["🌸","✨","🦋","💖","🌙","⭐"];
+const container = document.getElementById("emoji-rain");
+
+function createEmoji() {
+  const e = document.createElement("span");
+  e.className = "emoji";
+  e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  e.style.left = Math.random() * 100 + "vw";
+  e.style.fontSize = (Math.random() * 12 + 16) + "px";
+  e.style.animationDuration = (Math.random() * 10 + 15) + "s";
+  container.appendChild(e);
+  setTimeout(() => e.remove(), 25000);
+}
+setInterval(createEmoji, 500);
+
+
+/* 🌙 INTRO GATE LOGIC */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("intro").classList.add("open");
+  }, 2000);
+
+  setTimeout(() => {
+    document.getElementById("intro").style.display = "none";
+  }, 4200);
+});
+
+</script>
+
+</body>
+</html>

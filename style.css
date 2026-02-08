@@ -1,0 +1,208 @@
+/* 🌙 INTRO GATE */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #0a102a, #020617);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #eaeaff;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: introFade 1.5s ease forwards;
+  z-index: 2;
+}
+
+@keyframes introFade {
+  to { opacity: 1; }
+}
+
+/* Gates */
+.gate {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1f3c, #020617);
+  transition: transform 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.gate-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.gate-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Open state */
+#intro.open .gate-left {
+  transform: translateX(-100%);
+}
+
+#intro.open .gate-right {
+  transform: translateX(100%);
+}
+
+#intro.open .intro-text {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Mobile tweak */
+@media (max-width: 600px) {
+  .intro-text {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:radial-gradient(circle at top,#0a102a,#020617);
+color:#eaeaff;
+text-align:center;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+/* HERO */
+.hero{
+padding:140px 20px 90px;
+}
+
+.title-glow{
+font-size:4rem;
+font-weight:700;
+background:linear-gradient(90deg,#f5d0ff,#bfa3ff,#f5d0ff);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 4s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes shine{
+to{background-position:200%}
+}
+@keyframes glow{
+from{text-shadow:0 0 15px rgba(191,163,255,.5)}
+to{text-shadow:0 0 35px rgba(191,163,255,1)}
+}
+
+/* CARDS */
+.card{
+max-width:760px;
+margin:0 auto 45px;
+padding:48px;
+border-radius:26px;
+background:linear-gradient(135deg,#3a1c71,#6a1b9a);
+box-shadow:0 30px 60px rgba(0,0,0,.6);
+transition:.4s;
+}
+
+.card p{
+font-size:1.4rem;
+line-height:1.9;
+color:white;
+text-shadow:0 0 8px rgba(255,255,255,.2);
+}
+
+.card:hover{
+transform:scale(1.02);
+box-shadow:0 0 40px rgba(191,163,255,.6);
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#6a1b9a;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:30px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+z-index:10;
+}
+
+/* FALLING EMOJIS */
+#emoji-rain{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:0;
+}
+
+.emoji{
+position:absolute;
+top:-10%;
+opacity:.4;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{top:110%}
+}
+
+/* FLOATING WORDS */
+.floating-words span{
+position:fixed;
+bottom:-10%;
+font-size:1rem;
+opacity:.18;
+animation:floatWord 22s linear infinite;
+}
+
+@keyframes floatWord{
+to{bottom:110%}
+}
+
+/* BEARS & PANDAS */
+#bg-characters{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:0;
+}
+
+.char{
+position:absolute;
+font-size:3rem;
+opacity:.85;
+}
+
+.rotate-12{transform:rotate(12deg)}
+.rotate--12{transform:rotate(-12deg)}
+.rotate-180{transform:rotate(180deg)}
+
+/* FOOTER */
+footer{
+padding:30px;
+font-size:.9rem;
+opacity:.7;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.title-glow{font-size:2.6rem}
+.card p{font-size:1.1rem}
+.char{font-size:2.2rem}
+}
